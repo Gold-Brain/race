@@ -1,0 +1,268 @@
+@use "vars" as *;
+
+.gallery-movie{
+	max-width: 1040px;
+	margin: 40px auto 120px;
+	@include mq{
+		margin: 15px auto 60px;
+	}
+	a{
+		display: inline-block;
+		&:hover{
+			opacity: 0.7;
+		}
+	}
+	img{
+		width: 100%;
+	}
+}
+.sec-gallery{
+	background-color: #EDEDED;
+	padding: 80px 0 160px;
+	@include mq{
+		padding: 34px 0 59.5px;
+	}
+}
+.gallery-inner{
+	max-width: 1040px;
+	width: 90%;
+	margin: 0 auto;
+	@include flex(end,0,wrap);
+	@include mq{
+		width: 100%;
+	}
+}
+.gallery-ttl{
+	&--jp{
+		display: block;
+		@include fts(16);
+		font-weight: normal;
+		margin: -18px 25px;
+		@include mq{
+			@include fts(12);
+			margin: 0 0 0 18%;
+		}
+	}
+}
+.gallery-block{
+	background-position: top 17.5% left -4%;
+	background-size: 26.5%;
+	background-repeat: no-repeat;
+	position: relative;
+	margin-bottom: 120px;
+	@include mq{
+		// background-position: top 9% left -21%;
+		// background-size: 48%;
+		background-position: top 32px left -15px;
+		background-size: 180px;	
+		margin-bottom: 50px;
+	}
+	@include mq(sm){
+		background-position: top 32px left -41px;
+	}
+	.c-ttl__03--red{
+		margin-bottom: 28px;
+		&::before{
+			@include mq{
+				width: 6px;
+				height: 6px;
+				left: 2px;
+			}
+		}
+	}
+	&:before{
+		content: "";
+		position: absolute;
+		width: 70.5%;
+		height: 1px;
+		background: #ccc;
+		top: 0;
+		right: 0;
+		@include mq{
+			width: 64%;
+		}
+	}
+	&__lt{
+		font-family: $font-en;
+		margin: 0 4.8% 0 0;
+		width: 18%;
+		@include mq{
+			margin: 0 7.5% 0 0;
+			width: 30%;
+			.c-ttl__03{
+				@include fts(20);
+				padding-left: 18%;
+				&--red{
+					margin-bottom: 2px;
+				}
+			}
+		}
+		
+	}
+	&__rt{
+		padding-top: 4px;
+		width: 77%;
+		@include mq{
+			width: 57.6%;
+		}
+	}
+	&__ct{
+		background: #fff;
+		border-radius: 4px;
+		margin: 60px 0 46px;
+		padding: 37px 41px;
+		position: relative;
+		@include mq{
+			margin: 27px 0 80px;
+			padding: 15px 9.5% 10px;
+			min-height: 120px;
+		}
+		&:before{
+			content: "";
+			position: absolute;
+			top: 33px;
+			left: 0;
+			width: 4px;
+			height: 32px;
+			background-color: #005BAC;@include mq{
+				top: 17px;
+				height: 20px;
+			}
+		}
+		&-area{
+			@include fts(18);
+			font-weight: bold;
+			margin-bottom: 16px;
+			@include mq{
+				@include fts(14);
+				margin-bottom: 0;
+			}
+		}
+		&-address{
+			@include fts(16);
+			@include mq{
+				@include fts(12);
+			}
+		}
+	}
+	&__img{
+		@include flex(0,0,wrap);
+		gap:  16px 2%;
+		width: 77%;
+		@include mq{
+			@include flex(center,center,wrap);
+			gap: 7px;
+			width: 100%;
+			margin: 0 auto;
+		}
+		a {
+			display: block;
+			width: 32%;
+			@include mq{
+				width: 28.5%;
+			}
+			&:hover{
+				opacity: 0.7;
+			}
+			img{
+				width: 100%;
+			}
+		}
+	}
+}
+.tokyo-block{
+	background-image: url(../img/gallery/map-tokyo.png);
+	@include mq{
+		background-image: url(../img/gallery/map-tokyo-sp.png);
+	}
+}
+.osaka-block{
+	background-image: url(../img/gallery/map-osaka.png);
+	@include mq{
+		background-image: url(../img/gallery/map-osaka-sp.png);
+	}
+}
+.nagoya-block{
+	background-image: url(../img/gallery/map-nagoya.png);
+	@include mq{
+		background-image: url(../img/gallery/map-nagoya-sp.png);
+	}
+}
+.gallery-list{
+	max-width: 960px;
+	width: 90%;
+	margin: 0 auto;
+	@include flex(start,start,wrap);
+	gap: 0 5%;
+	@include mq(){
+		width: 89%;
+	}
+	&__item{
+		@include fts(14, 28);
+		padding: 22px 0 17px;
+		border-bottom: 1px solid #ccc;
+		width: 47.5%;
+		position: relative;
+		@include mq{
+			@include fts(12,24);
+			padding: 15px 0;
+			width: 100%;
+		}
+		&:first-child{
+			border-top: 1px solid #ccc;
+			&:before{
+				position: absolute;
+				content:"";
+				width:40px;
+				height: 1px;
+				background: #E33400;
+				top: -1px;
+				left:0;
+				@include mq{
+					width: 31px;
+				}
+			}
+		}
+		&:nth-child(2){
+			border-top: 1px solid #ccc;
+			@include mq{
+				border-top: none;
+			}
+			&:before{
+				position: absolute;
+				content:"";
+				width:40px;
+				height: 1px;
+				background: #E33400;
+				top: -1px;
+				left:0;
+				@include mq{
+					display: none;
+				}
+			}
+		}
+		&:after{
+			position: absolute;
+			content:"";
+			width:40px;
+			height: 1px;
+			background: #E33400;
+			bottom: -1px;
+			left:0;
+			@include mq{
+				width: 31px;
+			}
+		}
+		>span{
+			display: inline-block;
+			@include fts(18,28);
+			font-family: $font-en;
+			font-weight: bold;
+			margin: 0 24px 5px 0;
+			@include mq{
+				@include fts(14);
+				margin: 0 21px 6px 0;
+			}
+		}
+	}
+}

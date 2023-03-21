@@ -1,0 +1,389 @@
+@use "vars" as *;
+
+/* ====================================================
+Layout
+==================================================== */
+.inner{
+	width: 90%;
+	margin: 0 auto;
+	max-width: 1200px;
+	@include mq() {
+		width: 100%;
+		padding: 0 5%;
+	}
+	@include mq(sm){
+		padding: 0 20px;
+	}
+	&--small{
+		max-width: 1040px;
+	}
+}
+
+.breadcrumb {
+	padding: 26px 0;
+	background: #E1E1E1;
+	@include mq(){
+		padding: 18px 0;
+	}
+	.inner{
+		max-width: 1040px;
+	}
+	a, span {
+		color: #aaa;
+		font-weight: 700;
+		@include font-size(13);
+		@include mq(){
+			@include font-size(11);
+		}
+	}
+	a {
+		position: relative;
+		margin-right: 30px;
+		@include mq(){
+			margin-right: 28px;
+		}
+		&:after {
+			content: "";
+			position: absolute;
+			background: #aaa;
+			width: 4px;
+			height: 4px;
+			border-radius: 50%;
+			top: 4px;
+			right: -15px;
+			@include mq(){
+				width: 3px;
+				height: 3px;
+			}
+		}
+		@include p-before(100%,1px){
+			background: #aaa;
+			bottom: -3px;
+			left: 0;
+			width: 100%;
+			transform-origin: 100% 0;
+			transform: scaleX(0);
+			transition: transform 0.3s cubic-bezier(0.13, 0.78, 0.38, 0.98);
+		}
+		&:hover{
+			&:before{
+				transform-origin: 0 0;
+				transform: scaleX(1);
+			}
+		}
+	}
+	span{
+		&:last-child{
+			position: relative;
+			@include p-before(100%,1px){
+				background: #aaa;
+				bottom: -1px;
+				left: 0;
+				width: 100%;
+			}
+		}
+	}
+}
+
+.mv-page{
+	&__img{
+		overflow: hidden;
+		img{
+			transition: 3s ease;
+			width: 100%;
+			object-fit: cover;
+			min-height: 270px;
+		}
+	}
+	&__ttl{
+		font-weight: 700;
+		position: absolute;
+		bottom: 41px;
+		@include h-align();
+		width: 100%;
+		max-width: 1070px;
+		color: #fff;
+		padding: 0 15px;
+		@include mq(){
+			bottom: 31px;
+			padding: 0 20px;
+		}
+		.c-ft{
+			&--en{
+				@include font-size(18);
+				display: block;
+				position: relative;
+				padding-left: 24px;
+				margin-bottom: 28px;
+				@include mq(){
+					@include font-size(14);
+					padding-left: 18px;
+					margin-bottom: 19px;
+				}
+				@include p-before(8px,8px){
+					background: #E33400;
+					border-radius: 50%;
+					@include v-align();
+					left: 0;
+					@include mq(){
+						width: 7px;
+						height: 7px;
+					}
+				}
+			}
+			&--jp{
+				@include font-size(36);
+				font-family: $font-base;
+				letter-spacing: 0.5rem;
+				display: block;
+				@include mq(){
+					@include font-size(28);
+				}
+			}
+		}
+	}
+	.breadcrumb{
+		position: absolute;
+		top: 0;
+		background: transparent;
+		width: 100%;
+		padding-top: 43px;
+		@include mq(){
+			padding-top: 31px;
+			z-index: 9;
+		}
+		@media screen and (max-width: 450px){
+			padding-left: 120px;
+		}
+		a,span{
+			color: #fff;
+			z-index: 9999;
+			font-family: $font-en;
+		}
+		a{
+			@include mq(){
+				margin-right: 21px;
+			}
+			&:after{
+				background: #fff;
+				@include mq(){
+					right: -10px;
+				}
+			}
+			&:before{
+				background: #fff;
+			}
+		}
+		span{
+			&:last-child{
+				&:before{
+					background: #fff;
+					@include mq(){
+						display: none;
+					}
+				}
+				@include mq(){
+					text-decoration: underline;
+				}
+			}
+		}
+		.inner{
+			max-width: 1600px;
+			width: 100%;
+			padding-left: 200px;
+			@include mq(lg){
+				padding-left: 120px;
+			}
+			@media screen and (max-width: 450px){
+				width: 170px;
+				padding: 0;
+				margin: 0;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				color: #fff;
+			}
+		}
+	}
+	&--02{
+		.mv-page{
+			&__ttl{
+				bottom: 78px;
+				max-width: 1230px;
+				@include mq(){
+					bottom: 38px;
+				}
+				.c-ft{
+					&--en{
+						&:before{
+							background: #fff;
+						}
+					}
+					&--jp{
+						letter-spacing: 0;
+					}
+				}
+			}
+			&__img{
+				img{
+					height: 100vh;
+				}
+			}
+		}
+	}
+}
+
+.txt-deco{
+	@include font-size(120);
+	font-weight: 700;
+	line-height: 1;
+	position: absolute;
+	top: -20px;
+	right: 0;
+	@include mq(xl){
+		font-size: 10vw;
+	}
+	@include mq{
+		@include font-size(60);
+		top: 0;
+		right: 7px;
+	}
+	@include mq(sm){
+		top: -33px;
+	}
+	@include mq(xs) {
+		@include font-size(50);
+	}
+}
+
+.txt-intro{
+	font-family: $font-en;
+	@include font-size(14);
+	font-weight: 700;
+	color: #AAA;
+	letter-spacing: 0.8px;
+	@include mq{
+		letter-spacing: 0;
+		@include font-size(12);
+	}
+}
+
+.project-list{
+	margin-bottom: 64px;
+	@include mq(md-min){
+		padding-right: 240px;
+	}
+	@include mq(){
+		margin-bottom: 42px;
+	}
+	&__item{
+		@include flex(0,0,wrap);
+		margin-bottom: 45px;
+		@include mq(){
+			margin-bottom: 24px;
+		}
+		&:last-child{
+			margin-bottom: 0;
+			.project-list{
+				&__ct{
+					&:before{
+						display: none;
+					}
+				}
+			}
+		}
+	}
+	&__number{
+		width: 40px;
+		@include font-size(20);
+		font-weight: 700;
+		color: #3780C9;
+		font-family: $font-en;
+		@include mq(){
+			@include font-size(14);
+			width: 30px;
+		}
+	}
+	&__ct{
+		width: calc(100% - 40px);
+		border: 8px #BFCEDC solid;
+		padding: 31px 39px;
+		background: #fff;
+		position: relative;
+		margin-top: 7px;
+		@include mq(){
+			width: calc(100% - 30px);
+			border-width: 5px;
+			padding: 11px 16px;
+		}
+		@include p-before(100%,71px){
+			background: #BFCEDC;
+			clip-path: polygon(50% 50%, 0 0, 100% 0);
+			position: absolute;
+			bottom: -78px;
+			left: 0;
+			right: 0;
+			@include mq(){
+				height: 40px;
+				bottom: -44px;
+			}
+		}
+		&-ttl{
+			font-weight: 700;
+			color: #3780C9;
+			margin-bottom: 10px;
+			@include mq(){
+				margin-bottom: 3px;
+			}
+		}
+	}
+	&--02{
+		padding-right: 0;
+		@include mq(){
+			margin-bottom: 32px;
+		}
+		.project-list{
+			&__number{
+				color: #E33400;
+			}
+			&__ct{
+				border-color: #F1C8BE;
+				&:before{
+					background: #F1C8BE;
+				}
+				&-ttl{
+					color: #464646;
+				}
+			}
+		}
+	}
+}
+
+.js-fade{
+	span{
+		opacity: 0;
+		transition: all 1s ease;
+		transform: translateY(20px);
+		display: inline-block;
+		&.fade{
+			transition: all 1s ease;
+			transition-delay: 0.2s;
+			opacity: 1;
+			transform: translateY(0px);
+		}
+	}
+}
+
+
+
+
+.c-line{
+	animation: none !important;
+	display: inline;
+	transition: background-size 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	background-size: 0% 2px;
+	text-decoration: none;
+	background-image: url(../img/common/line_w.png);
+}

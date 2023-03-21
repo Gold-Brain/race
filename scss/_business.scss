@@ -1,0 +1,187 @@
+@use "vars" as *;
+#page-business_index{
+	.breadcrumb{
+		background: #ededed;
+		@include mq{
+			padding-left: 100px;
+		}
+	}
+}
+.sec-business{
+	background: #ededed;
+	padding: 87px 0 22px;
+	@include mq{
+		padding: 87px 0 40px;
+	}
+	.c-ttl__01-base,.c-ttl__01-en{
+		color:#464646;
+	}
+}
+.business-block{
+	position: relative;
+	padding: 82px 0;
+	@include mq{
+		padding: 19px 0;
+	}
+}
+.business__heading{
+	@include flex(between,end,wrap);
+	margin-bottom: 32px;
+	@include mq{
+		margin-bottom: 25px;
+	}
+	&-ttl{
+		@include fts(40,80);
+		font-weight: 700;
+		@include mq{
+			@include fts(28,48);
+		}
+	}
+	&-txt{
+		width: 57.5%;
+		margin-bottom: 15px;
+	}
+	.c-ttl__01-en{
+		margin-bottom: -2px;
+		&:before {
+			top: 13px;
+		}
+		@include mq{
+			margin-bottom: 2px;
+				&:before {
+					top: 9px;
+				}
+		}
+	}
+}
+.business-cat{
+	@include fts(18,28);
+	font-family: $font-en;
+	font-weight: bold;
+	color: #aaa;
+	margin-bottom: 57px;
+	@include mq{
+		@include fts(16,14);
+		margin-bottom: 36px;
+	}
+	a{
+		display: inline-block;
+		margin: 0 29px 0 0;
+		@include mq{
+			margin: 0 17px 0 0;
+		}
+		&:hover{
+			color: #005BAC;
+		}
+	}
+	.active{
+		color: #005BAC;
+		text-decoration: underline;
+	}
+}
+.business-list{
+	@include flex(between,0,wrap);
+	&__item{
+		width: 32.5%;
+		margin-bottom: 48px;
+		@include mq{
+			width: 47%;
+			margin-bottom: 19px;
+		}
+		a{
+			display: block;
+			&:hover{
+				.business-list__img{
+					img{
+						transform: scale(1.1);
+						transition: all 1s;
+					}
+				}
+			}
+		}
+	}
+	&__img{
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		margin-bottom: 14px;
+		@include mq{
+			margin-bottom: 12px;
+		}
+		img{
+			width: 100%;
+			transition: all 1s;
+		}
+		&::before{
+			display: inline-block;
+			position: absolute;
+			width: 16px;
+			height: 16px;
+			bottom: 21px;
+			right: 31px;
+			font-size: 1.8rem;
+			font-family: "Font Awesome 6 Free";
+			font-weight: 900;
+			content: "\f061";
+			-webkit-transition: 0.2s;
+			-o-transition: 0.2s;
+			transition: 0.2s;
+			color: #fff;
+			z-index: 10;
+			@include mq{
+				width: 8px;
+			height: 8px;
+			bottom: 10px;
+			right: 15px;
+			font-size: 0.9rem;
+			}
+		}
+	}
+	&__tag{
+		position: absolute;
+		padding: 0 12px;
+		text-align: center;
+		top: 4%;
+		left: 5%;
+		background: #fff;
+		border-radius: 4px;
+		color: #005BAC;
+		@include fts(14,28);
+		font-family: $font-en;
+		@include mq{
+			padding: 1px 6px;
+			left: 4%;
+			@include fts(10,14);
+		}
+	}
+	&__arrow{
+		position: absolute;
+		width: 80px;
+		height: 40px;
+		padding: 2px 0;
+		bottom: 0;
+		right: 0;
+		background: #464646;
+		@include mq{
+			width: 40px;
+			height: 20px;
+		}
+	}
+	&__txt{
+		@include fts(18,36);
+		font-weight: bold;
+		@include mq{
+			@include fts(14,24);
+		}
+	}
+	a:hover{
+		.business-list{
+			&__arrow{
+				background: #005BAC;
+			}
+			&__txt{
+				text-decoration: underline;
+			}
+		}
+	}
+}

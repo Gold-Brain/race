@@ -1,0 +1,333 @@
+@use "vars" as *;
+
+.sec-philosophy{
+	padding: 55px 0 50px 0;
+	@include mq(){
+		padding: 36px 0 50px 0;
+	}
+	.c-ttl__03{
+		&::before{
+			width: 8px;
+			height: 8px;
+			@include mq(){
+				width: 6px;
+				height: 6px;
+			}
+		}
+		@include mq(){
+			padding-left: 19px;
+		}
+	}
+}
+
+.philosophy-box{
+	position: relative;
+	padding-top: 121px;
+	margin-bottom: 103px;
+	border-top: 1px solid #CCCCCC;
+	@include mq(){
+		padding-top: 61px;
+		margin-bottom: 52px;
+	}
+	&:nth-of-type(2){
+		padding-top: 97px;
+		margin-bottom: 122px;
+		@include mq(){
+			padding-top: 61px;
+			margin-bottom: 62px;
+		}
+	}
+	&:nth-of-type(3){
+		padding-top: 98px;
+		@include mq(){
+			padding-top: 60px;
+			margin-bottom: 0;
+		}
+	}
+	&::before{
+		content: '';
+	    width: 40px;
+		height: 3px;
+		background: #E33400;
+		top: -2px;
+		left: 0;
+		position: absolute;
+		z-index: 2;
+		@include mq(){
+			width: 32px;
+		}
+	}
+	&::after{
+		content: '';
+		width: 1000px;
+		height: 1px;
+		background: #CCCCCC;
+		right: -1000px;
+		top: -1px;
+		position: absolute;
+	}
+	&__center{
+		text-align: center;
+		@include mq(){
+			text-align: left;
+		}
+		.c-ttl__03{
+			display: inline-block;
+			margin-bottom: 39px;
+			@include mq(){
+				margin-bottom: 40px;
+			}
+		}
+	}
+	&__heading{
+		text-align: center;
+		color: #464646;
+		font-weight: bold;
+		line-height: 1.8;
+		@include font-size(48);
+		@include mq(xl){
+			@include font-size(40);
+		}
+		@include mq(){
+			letter-spacing: -0.5px;
+			@include font-size(24);
+		}
+		@include mq(xs){
+			@include font-size(20);
+		}
+		span{
+			display: inline-block;
+			position: relative;
+			letter-spacing: 1.5px;
+			padding: 0 9px;
+			font-feature-settings: "palt" 1;
+			@include mq(){
+				padding: 0;
+				letter-spacing: 0;
+			}
+			small{
+				position: absolute;
+				line-height: 1.2;
+				top: 0;
+				left: 0;
+				width: 100%;
+				text-align: center;
+				color: #464646;
+				letter-spacing: 8px;
+				padding-left: 10px;
+				font-weight: bold;
+				@include font-size(14);
+				@include mq(){
+					letter-spacing: 6px;
+					padding-left: 6px;
+					top: -9px;
+					@include font-size(11);
+				}
+			}
+		}
+	}
+	&__flex{
+		@include flex();
+		margin-bottom: 65px;
+		@include mq(){
+			margin-bottom: 21px;
+		}
+		&:last-child{
+			margin-bottom: 0;
+		}
+		&-ttl{
+			display: flex;
+			align-items: flex-end;
+			width: 80px;
+			letter-spacing: 2px;
+			color: #464646;
+			writing-mode: tb-rl;
+			font-weight: bold;
+			@include font-size(20);
+			@include mq(){
+				width: 40px;
+				@include font-size(16);
+			}
+		}
+	}
+	&__list{
+		width: calc(100% - 80px);
+		@include flex(0,0,wrap);
+		@include mq(){
+			width: calc(100% - 40px);
+		}
+		&.active{
+			.philosophy-box__list-item a span{
+				&::before{
+					width: 100%;
+					transition: all 0.75s;
+					transition-delay: 0.5s;
+				}
+			}
+		}
+		&-item{
+			width: 33.33%;
+			margin-bottom: -1px;
+			margin-right: -1px;
+			&--w100{
+				width: 66.66%;
+			}
+			@include mq(){
+				width: 100% !important;
+				margin-right: 0;
+			}
+			a{
+				border: 1px solid #CCCCCC;
+				height: 120px;
+				color: #464646;
+				font-weight: bold;
+				padding: 20px;
+				background: #fff;
+				@include flex(center,center);
+				@include font-size(24);
+				position: relative;
+				@include mq(xl){
+					@include font-size(20);
+				}
+				@include mq(){
+					height: 80px;
+					justify-content: flex-start;
+					padding: 10px 27px;
+					@include font-size(18);
+				}
+				@include mq(xs){
+					padding: 10px 15px;
+				}
+				&::before{
+					content: '';
+					width: 8px;
+					height: 8px;
+					border-top: 2px solid #E33400;
+					border-left: 2px solid #E33400;
+					position: absolute;
+					top: -1px;
+					left: -1px;
+				}
+				span{
+					padding-bottom: 4px;
+					display: inline-block;
+					border-bottom: 2px solid transparent;
+					position: relative;
+					&::before{
+						content: '';
+						width: 0;
+						height: 2px;
+						background: #E33400;
+						bottom: 0;
+						left: 0;
+						position: absolute;
+						transition: all 0.3s
+					}
+				}
+			}
+		}
+	}
+	&__flex02{
+		@include flex();
+		@include mq(){
+			flex-wrap: wrap;
+		}
+		&-left{
+			width: 240px;
+			@include mq(){
+				width: 100%;
+			}
+			.c-ttl__03{
+				margin-bottom: 63px;
+				@include mq(){
+					margin-bottom: 40px;
+				}
+			}
+		}
+		&-right{
+			width: calc(100% - 240px);
+			@include mq(){
+				width: 100%;
+			}
+		}
+	}
+	&__title{
+		color: #464646;
+		font-weight: bold;
+		@include font-size(48);
+		@include mq(md-min){
+			writing-mode: tb-rl;
+		}
+		@include mq(){
+			margin-bottom: 42px;
+			letter-spacing: 0.75px;
+			@include font-size(24);
+		}
+	}
+	&__step{
+		margin: 0 -4px;
+		@include flex(0,0,wrap);
+		&-item{
+			padding: 0 4px;
+			margin-bottom: 8px;
+			width: 50%;
+		}
+		&-ct{
+			position: relative;
+			background: #fff;
+			border-radius: 8px;
+			padding: 10px;
+			height: 96px;
+			color: #464646;
+			font-weight: bold;
+			@include font-size(28);
+			@include flex(center,center);
+			@include mq(xl){
+				@include font-size(24);
+			}
+			@include mq(){
+				height: 80px;
+				border-radius: 4px;
+				padding: 8px 10px 10px;
+				line-height: 1.571;
+				@include font-size(20);
+			}
+			@include mq(xs){
+				@include font-size(18);
+			}
+			span{
+				@include font-size(20);
+				@include mq(xl){
+					@include font-size(18);
+				}
+				@include mq(){
+					@include font-size(14);
+				}
+				@include mq(xs){
+					@include font-size(12);
+				}
+			}
+		}
+		&-number{
+			position: absolute;
+			top: -1px;
+			left: 24px;
+			padding: 0 3px;
+			display: inline-block;
+			border-top: 3px solid #E33400;
+			color: #E33400;
+			padding-top: 10px;
+			font-weight: bold;
+			font-family: $font-en;
+			@include font-size(16);
+			@include mq(xl){
+				left: 15px;
+			}
+			@include mq(){
+				left: 8px;
+				padding-top: 2px;
+				@include font-size(13);
+			}
+		}
+	}
+}

@@ -1,0 +1,230 @@
+@use "vars" as *;
+
+body.is-visible{
+	overflow: visible;
+}
+.sec-recruit{
+	padding: 80px 0 92px 0;
+	background: #EDEDED;
+	@include mq(){
+		padding: 30px 0 32px 0;
+	}
+}
+
+.flex{
+	@include flex(0,0,wrap);
+}
+.main-content{
+	width: calc(100% - 240px);
+	padding-right: 6.5%;
+	max-width: 880px;
+	margin-left: auto;
+	@include mq(){
+		width: 100%;
+		max-width: 100%;
+		padding-right: 0;
+		margin-bottom: 27px;
+	}
+}
+.sidebar{
+	width: 240px;
+	z-index: 9999;
+	@include mq(){
+		width: 100%;
+	}
+}
+.sidebar-sticky{
+	position: sticky;
+	top: 20px;
+	margin-bottom: 67px;
+	@include mq(){
+		margin-bottom: 28px;
+	}
+}
+
+.sidebar-box{
+	margin-bottom: 15px;
+	border-radius: 12px;
+	overflow: hidden;
+	@include mq(){
+		margin-bottom: 20px;
+	}
+	&__ttl{
+		@include font-size(16);
+		color: #fff;
+		font-weight: 700;
+		background: #49D13E;
+		padding: 20px 32px;
+		@include mq(){
+			@include font-size(12);
+			text-align: center;
+			padding: 14px 15px;
+		}
+		&--02{
+			background: #20BBE0;
+		}
+	}
+	&__list{
+		padding: 20px 20px 12px 20px;
+		background: #5F5F5F;
+		@include flex(0,0,wrap);
+		@include mq(){
+			padding: 18px 12px 10px 12px;
+		}
+		&-item{
+			color: #fff;
+			padding: 4px 10px;
+			@include font-size(14);
+			font-weight: 500;
+			margin-bottom: 10px;
+			@include mq(){
+				@include font-size(12);
+				margin-bottom: 6px;
+			}
+			a{
+				border-bottom: 1px #fff solid;
+				transition: 0.3s ease;
+				&:hover{
+					color: #888;
+					border-color: #888;
+					transition: 0.3s ease;
+				}
+			}
+		}
+	}
+	&--02{
+		.sidebar-box{
+			&__list{
+				@include mq(){
+					justify-content: center;
+				}
+			}
+		}
+	}
+}
+.recruit-block{
+	padding-top: 3%;
+	&__ttl{
+		@include fts(28,56);
+		font-weight: 700;
+		border-bottom: 1px #ccc solid;
+		position: relative;
+		letter-spacing: 0.1rem;
+		padding-bottom: 21px;
+		margin-bottom: 67px;
+		@include mq(){
+			@include font-size(20);
+			padding-bottom: 11px;
+			margin-bottom: 33px;
+		}
+		@include p-before(40px,3px){
+			background: #E33400;
+			bottom: -1px;
+			left: 0;
+			@include mq(){
+				width: 32px;
+			}
+		}
+	}
+	&__wrap{
+		background: #fff;
+		padding: 34px 40px 31px 40px;
+		margin-bottom: 67px;
+		@include mq(){
+			padding: 16px 20px 18px 20px;
+			margin-bottom: 33px;
+		}
+		p{
+			margin-bottom: 20px;
+			@include mq(){
+				margin-bottom: 10px;
+			}
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+		&-list{
+			margin-bottom: 20px;
+			@include mq(){
+				margin-bottom: 10px;
+			}
+			&-item{
+				position: relative;
+				padding-left: 13px;
+				@include p-before(10px,10px){
+					background: #464646;
+					left: 0;
+					top: 10px;
+					@include mq(){
+						width: 8px;
+						height: 8px;
+						top: 6px;
+					}
+				}
+			}
+		}
+	}
+	&__list{
+		margin-bottom: 67px;
+		@include mq(){
+			margin-bottom: 32px;
+		}
+		&-item{
+			@include flex(0,0,wrap);
+			background: #fff;
+			padding: 34px 40px 15px 40px;
+			margin-bottom: 2px;
+			@include mq(){
+				padding: 17px 21px 5px 21px;
+			}
+		}
+		&-ttl{
+			font-weight: 700;
+			width: 120px;
+			padding-right: 15px;
+			@include mq(){
+				width: 75px;
+				padding-right: 10px;
+			}
+		}
+		&-ct{
+			width: calc(100% - 120px);
+			@include mq(){
+				width: calc(100% - 75px);
+			}
+			p{
+				margin-bottom: 15px;
+				@include mq(){
+					margin-bottom: 10px;
+				}
+			}
+		}
+		&-txt{
+			padding-left: 24px;
+		}
+	}
+}
+.txt-list{
+	margin-bottom: 10px;
+	@include mq(){
+		margin-bottom: 9px;
+	}
+	&__item{
+		position: relative;
+		padding-left: 24px;
+		@include mq(){
+			padding-left: 18px;
+		}
+		@include p-before(8px,8px){
+			background: #E33400;
+			border-radius: 50%;
+			left: 0;
+			top: 12px;
+			@include mq(){
+				width: 6px;
+				height: 6px;
+				top: 6px;
+			}
+		}
+	}
+}

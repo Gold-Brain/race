@@ -1,0 +1,264 @@
+@use "vars" as *;
+
+.is-hello{
+	.mv-page{
+		&--02{
+			.mv-page{
+				&__img{
+					img{
+						transform: scale(1.05);
+						transition: 3s ease;
+					}
+				}
+			}
+		}
+	}
+}
+.sidebar-business{
+	position: fixed;
+	top: calc(100vh - 400px);
+	@include h-align();
+	width: 100%;
+	max-width: 1230px;
+	z-index: 99;
+	padding: 0 15px;
+	transition: 1s ease;
+	&__wrap{
+		margin-left: auto;
+		background: #5F5F5F;
+		border-radius: 12px;
+		width: 240px;
+		overflow: hidden;
+	}
+	&__list{
+		padding: 17px 32px 24px 32px;
+		&-item{
+			a{
+				display: block;
+				padding: 14px 0 10px 0;
+				@include font-size(14);
+				font-weight: 500;
+				border-bottom: 1px #707070 solid;
+				color: rgba(255,255,255,0.5);
+				position: relative;
+				@include p-before(5px,5px){
+					border-right: 1px #fff solid;
+					border-bottom: 1px #fff solid;
+					transform: rotate(45deg);
+					right: 0;
+					top: 17px;
+				}
+				@include p-after(0,1px){
+					background: #fff;
+					bottom: -1px;
+					left: 0;
+					transition: 0.3s ease;
+				}
+				&:hover{
+					&:after{
+						width: 100%;
+						transition: 0.3s ease;
+					}
+				}
+			}
+			&.active{
+				a{
+					color: #fff;
+					border-bottom: 1px #fff solid;
+					&:after{
+						width: 100%;
+						transition: 0.3s ease;
+					}
+				}
+			}
+		}
+	}
+	&__btn{
+		@include font-size(14);
+		display: block;
+		font-weight: 700;
+		color: #fff;
+		background: #464646;
+		padding: 20px 32px;
+		span{
+			display: block;
+			position: relative;
+			@include p-before(5px,5px){
+				border-right: 1px #fff solid;
+				border-top: 1px #fff solid;
+				transform: rotate(45deg);
+				right: 0;
+				top: 4px;
+			}
+		}
+	}
+	&.is-show{
+		//top: 80px;
+		//transition: 1s ease;
+	}
+}
+.sec-management{
+	padding: 120px 0 53px 0;
+	background: #EDEDED;
+	@include mq(){
+		padding: 60px 0 21px 0;
+	}
+	&__ttl{
+		font-weight: 700;
+		padding-right: 240px;
+		margin-bottom: 47px;
+		@include mq(){
+			margin-bottom: 44px;
+			padding-right: 0;
+		}
+		small{
+			display: block;
+			@include font-size(18);
+			color: #3780C9;
+			position: relative;
+			padding-left: 35px;
+			margin-bottom: 16px;
+			@include mq(){
+				@include font-size(14);
+				padding-left: 33px;
+				margin-bottom: 12px;
+			}
+			@include p-before(24px,2px){
+				background: #3780C9;
+				@include v-align();
+				left: 0;
+				@include mq(){
+					width: 20px;
+				}
+			}
+		}
+		span{
+			display: block;
+			@include fts(36,72);
+			@include mq(lg){
+				@include font-size(30);
+			}
+			@include mq(){
+				@include font-size(24);
+				line-height: 1.6;
+			}
+		}
+	}
+	&--02{
+		padding: 108px 0 53px 0;
+		@include mq(){
+			padding: 51px 0 18px 0;
+		}
+	}
+}
+.management-list{
+	@include mq(md-min){
+		padding-right: 240px;
+	}
+	&__item{
+		&-lead{
+			@include fts(20,40);
+			font-weight: 700;
+			margin-bottom: 15px;
+			@include mq(){
+				@include fts(16,28);
+			}
+		}
+		p{
+			margin-bottom: 57px;
+			@include mq(){
+				margin-bottom: 34px;
+			}
+		}
+		img{
+			width: 100%;
+			object-fit: cover;
+		}
+		&-img{
+			display: block;
+			position: relative;
+			overflow: hidden;
+			margin-top: 15px;
+			margin-bottom: 67px;
+			@include mq(){
+				
+				margin: 8px -6% 43px -6%;
+			}
+		}
+	}
+}
+.sec-project{
+	padding: 121px 0 56px 0;
+	background: #E1E1E1;
+	@include mq(){
+		padding: 60px 0 21px 0;
+	}
+	&__ttl{
+		margin-bottom: 47px;
+		@include mq(){
+			margin-bottom: 26px;
+		}
+	}
+}
+.top-people{
+	&--02{
+		overflow: hidden;
+		padding-top: 0;
+		padding-bottom: 100px;
+		position: relative;
+		z-index: 99;
+		@include mq(){
+			padding-bottom: 58px;
+		}
+		@include p-before(80px,100%){
+			height: 100%;
+			background: #EDEDED;
+			left: 0;
+			top: 0;
+			z-index: 11;
+			@media screen and (max-width: 1120px){
+				width: 0;
+			}
+		}
+		.top-people{
+			&__block{
+				margin-bottom: 0;
+				border-top: none;
+				@include mq(lg){
+					padding-left: 5%;
+				}
+				&-container{
+					padding-bottom: 88px;
+				}
+				&-heading{
+					border-top: none;
+					padding-top: 126px;
+					@include mq(){
+						padding-top: 63px;
+					}
+				}
+				&-ct{
+					padding: 30px 0;
+				}
+				&-ttl{
+					margin-bottom: 14px;
+				}
+			}
+		}
+	}
+}
+#page-business_scout_index{
+	& +.top-recruit{
+		z-index: 99;
+	}
+	& ~.main-footer{
+		z-index: 99;
+	}
+	.js-animation-image{
+		img{
+			@include mq(){
+				//opacity: 1;
+			}
+		}
+	}
+}
